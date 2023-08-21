@@ -29,7 +29,7 @@ trait HttpResponses
    * @param integer $code
    * @return JsonResponse
    */
-  protected function error($data, $code)
+  protected function error($data, $code = 400)
   {
     return response()->json(['result' => $data], $code);
   }

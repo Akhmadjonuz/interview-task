@@ -2,12 +2,15 @@
 
 namespace App\Exceptions;
 
+use App\Traits\HttpResponses;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
 {
+  use HttpResponses;
+
   /**
    * A list of the exception types that are not reported.
    *
@@ -41,13 +44,13 @@ class Handler extends ExceptionHandler
 
     $this->renderable(function (AccessDeniedHttpException $e, $request) {
       return ($request->is('api/*'))
-        ? response()->json('Access denied for this user', 403)
+        ? $this->error('Access denied', 403)
         : $e;
     });
 
     $this->renderable(function (\ErrorException $e, $request) {
       return ($request->is('api/*'))
-        ? response()->json('Internal Error Exception', 500)
+        ? $this->error('Something went wrong', 500)
         : $e;
     });
 

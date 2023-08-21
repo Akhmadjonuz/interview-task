@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use App\Traits\HttpResponses;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -17,7 +18,7 @@ class AuthController extends Controller
     /**
      * @group Authentication
      *
-     * Log in the user.
+     * Login user
      *
      * @bodyParam phone integer required The user's phone number.
      * @bodyParam password string required The user's password.
@@ -59,8 +60,63 @@ class AuthController extends Controller
                 'role' => $user->role,
                 'token' => $user->createToken('auth_token')->plainTextToken,
             ]);
-        } catch (\Exception $exception) {
-            return $this->log($exception);
+        } catch (\Exception $e) {
+            return $this->log($e);
+        }
+    }
+
+    /**
+     * @group Authentication
+     * 
+     * Register user
+     * 
+     * @bodyParam phone integer required The user's phone number.
+     * @bodyParam password string required The user's password.
+     * 
+     * @response {
+     * "result": [
+     * "id": 1,
+     * "phone": "793631747611",
+     * "role": 2,
+     * "token": "eyJ0eXA..."
+     * ]
+     * }
+     * 
+     * 
+     * @response 400 {
+     * "result": "phone number already exists"
+     * }
+     * 
+     * @param RegisterRequest $request
+     * @return JsonResponse
+     */
+
+    public function register(RegisterRequest $request): JsonResponse
+    {
+        try {
+            $data = $request->validated();
+
+            $phone = $data['phone'];
+            $password = $data['password'];
+
+            DB::beginTransaction();
+
+            $user = new User();
+            $user->phone = $phone;
+            $user->password = Hash::make($password);
+            $user->role = 2;
+            $user->save();
+
+            DB::commit();
+
+            return $this->success([
+                'id' => $user->id,
+                'phone' => $user->phone,
+                'role' => $user->role,
+                'token' => $user->createToken('auth_token')->plainTextToken,
+            ]);
+        } catch (\Exception $e) {
+            return $this->log($e);
         }
     }
 
@@ -68,7 +124,9 @@ class AuthController extends Controller
     /**
      * @group Authentication
      * 
-     * @authenticated
+     * Logout user
+     * 
+     * @authenticated 
      *
      * @response {
      *  "result": "Successfully logged out"

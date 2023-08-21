@@ -8,11 +8,7 @@ endpoints:
       - POST
     uri: api/login
     metadata:
-      groupName: Authentication
-      groupDescription: ''
-      subgroup: null
-      subgroupDescription: null
-      title: 'Log in the user.'
+      title: 'Login user'
       description: ''
       authenticated: false
       custom: []
@@ -20,28 +16,22 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
-    cleanUrlParameters: []
     queryParameters: []
-    cleanQueryParameters: []
     bodyParameters:
       phone:
         name: phone
         description: "The user's phone number."
         required: true
-        example: 1
+        example: 6
         type: integer
         custom: []
       password:
         name: password
         description: "The user's password."
         required: true
-        example: 8Gel(k^zbgb<P
+        example: rem
         type: string
         custom: []
-    cleanBodyParameters:
-      phone: 1
-      password: 8Gel(k^zbgb<P
-    fileParameters: []
     responses:
       -
         status: 200
@@ -55,8 +45,7 @@ endpoints:
           ]
           }
         headers: []
-        description: ''
-        custom: []
+        description: '200'
       -
         status: 400
         content: |-
@@ -64,11 +53,89 @@ endpoints:
           "result": "Credential don't match or password error"
           }
         headers: []
-        description: ''
-        custom: []
+        description: '400'
     responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/register
+    metadata:
+      title: 'Register user'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      phone:
+        name: phone
+        description: "The user's phone number."
+        required: true
+        example: 13
+        type: integer
+        custom: []
+      password:
+        name: password
+        description: "The user's password."
+        required: true
+        example: illum
+        type: string
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'The value and <code>password</code> must match.'
+        required: true
+        example: dolorem
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "result": [
+          "id": 1,
+          "phone": "793631747611",
+          "role": 2,
+          "token": "eyJ0eXA..."
+          ]
+          }
+        headers: []
+        description: '200'
+      -
+        status: 400
+        content: |-
+          {
+          "result": "phone number already exists"
+          }
+        headers: []
+        description: '400'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      title: 'Logout user'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "result": "Successfully logged out"
+          }
+        headers: []
+        description: '200'
+    responseFields: []

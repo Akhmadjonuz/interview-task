@@ -9,10 +9,23 @@ servers:
 paths:
   /api/login:
     post:
-      summary: 'Log in the user.'
-      operationId: logInTheUser
+      summary: 'Login user'
       description: ''
-      parameters: []
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
       responses:
         200:
           description: ''
@@ -45,16 +58,723 @@ paths:
                 phone:
                   type: integer
                   description: "The user's phone number."
-                  example: 1
+                  example: 6
                 password:
                   type: string
                   description: "The user's password."
-                  example: 8Gel(k^zbgb<P
+                  example: rem
               required:
                 - phone
                 - password
       security: []
+  /api/register:
+    post:
+      summary: 'Register user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"result\": [\n\"id\": 1,\n\"phone\": \"793631747611\",\n\"role\": 2,\n\"token\": \"eyJ0eXA...\"\n]\n}"
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: 'phone number already exists'
+                properties:
+                  result:
+                    type: string
+                    example: 'phone number already exists'
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: integer
+                  description: "The user's phone number."
+                  example: 13
+                password:
+                  type: string
+                  description: "The user's password."
+                  example: illum
+                password_confirmation:
+                  type: string
+                  description: 'The value and <code>password</code> must match.'
+                  example: dolorem
+              required:
+                - phone
+                - password
+                - password_confirmation
+      security: []
+  /api/logout:
+    post:
+      summary: 'Logout user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: 'Successfully logged out'
+                properties:
+                  result:
+                    type: string
+                    example: 'Successfully logged out'
+      tags:
+        - Authentication
+  '/api/brand/show{id}':
+    get:
+      summary: 'Get brand list'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: []
+                properties:
+                  result:
+                    type: array
+                    example: []
+      tags:
+        - Brand
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'Optional parameter. The ID of the .'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: fugit
+  /api/brand/create:
+    post:
+      summary: 'Create brand'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: 'Brand created successfully'
+                properties:
+                  result:
+                    type: string
+                    example: 'Brand created successfully'
+      tags:
+        - Brand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "The brand's name."
+                  example: ad
+                status:
+                  type: boolean
+                  description: "nullable The brand's status."
+                  example: true
+              required:
+                - name
+  /api/brand/update:
+    put:
+      summary: 'Update brand'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: 'Brand updated successfully'
+                properties:
+                  result:
+                    type: string
+                    example: 'Brand updated successfully'
+      tags:
+        - Brand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: "The brand's id."
+                  example: 18
+                name:
+                  type: string
+                  description: "nullable The brand's name."
+                  example: corporis
+                status:
+                  type: boolean
+                  description: "nullable The brand's status."
+                  example: false
+              required:
+                - id
+  /api/brand/delete:
+    delete:
+      summary: 'Delete brand'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: 'Brand deleted successfully'
+                properties:
+                  result:
+                    type: string
+                    example: 'Brand deleted successfully'
+      tags:
+        - Brand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: "The brand's id."
+                  example: 20
+              required:
+                - id
+  '/api/category/show{id}':
+    get:
+      summary: 'Get category list'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: []
+                properties:
+                  result:
+                    type: array
+                    example: []
+      tags:
+        - Category
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'Optional parameter. The ID of the .'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: similique
+  /api/category/create:
+    post:
+      summary: 'Create category'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: 'Category created successfully'
+                properties:
+                  result:
+                    type: string
+                    example: 'Category created successfully'
+      tags:
+        - Category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "The category's name."
+                  example: voluptatum
+                status:
+                  type: boolean
+                  description: "nullable The category's status."
+                  example: false
+              required:
+                - name
+  /api/category/update:
+    put:
+      summary: 'Update category'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: 'Category updated successfully'
+                properties:
+                  result:
+                    type: string
+                    example: 'Category updated successfully'
+      tags:
+        - Category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: "The category's id."
+                  example: 9
+                name:
+                  type: string
+                  description: "nullable The category's name."
+                  example: voluptas
+                status:
+                  type: boolean
+                  description: "nullable The category's status."
+                  example: false
+              required:
+                - id
+  /api/category/delete:
+    delete:
+      summary: 'Delete category'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: 'Category deleted successfully'
+                properties:
+                  result:
+                    type: string
+                    example: 'Category deleted successfully'
+      tags:
+        - Category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: "The category's id."
+                  example: 7
+              required:
+                - id
+  /api/product/create:
+    post:
+      summary: 'Create product'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: 'Product created successfully'
+                properties:
+                  result:
+                    type: string
+                    example: 'Product created successfully'
+      tags:
+        - Product
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "The product's name."
+                  example: nam
+                photo:
+                  type: string
+                  format: binary
+                  description: "The product's photo."
+                price:
+                  type: string
+                  description: "The product's price."
+                  example: eaque
+                category_id:
+                  type: integer
+                  description: "The product's category id."
+                  example: 3
+                brand_id:
+                  type: integer
+                  description: "The product's brand id."
+                  example: 10
+                status:
+                  type: boolean
+                  description: "nullable The product's status."
+                  example: true
+              required:
+                - name
+                - photo
+                - price
+                - category_id
+                - brand_id
+  /api/product/update:
+    put:
+      summary: 'Update product'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: 'Product updated successfully'
+                properties:
+                  result:
+                    type: string
+                    example: 'Product updated successfully'
+      tags:
+        - Product
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: "The product's id."
+                  example: 3
+                name:
+                  type: string
+                  description: "nullable The product's name."
+                  example: dolorem
+                photo:
+                  type: string
+                  format: binary
+                  description: "nullable The product's photo."
+                price:
+                  type: string
+                  description: "nullable The product's price."
+                  example: aut
+                category_id:
+                  type: integer
+                  description: "nullable The product's category id."
+                  example: 17
+                brand_id:
+                  type: integer
+                  description: "nullable The product's brand id."
+                  example: 13
+                status:
+                  type: boolean
+                  description: "nullable The product's status."
+                  example: true
+              required:
+                - id
+  /api/product/show:
+    get:
+      summary: 'Get product list'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: []
+                properties:
+                  result:
+                    type: array
+                    example: []
+      tags:
+        - Product
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                price:
+                  type: number
+                  description: ''
+                  example: 64777.02
+                category_id:
+                  type: integer
+                  description: ''
+                  example: 16
+                brand_id:
+                  type: integer
+                  description: ''
+                  example: 10
 tags:
   -
     name: Authentication
+    description: ''
+  -
+    name: Brand
+    description: ''
+  -
+    name: Category
+    description: ''
+  -
+    name: Product
     description: ''

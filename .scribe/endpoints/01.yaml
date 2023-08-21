@@ -1,0 +1,153 @@
+name: Brand
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/brand/show{id?}'
+    metadata:
+      title: 'Get brand list'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the .'
+        required: false
+        example: fugit
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "result": [
+          ]
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/brand/create
+    metadata:
+      title: 'Create brand'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: "The brand's name."
+        required: true
+        example: ad
+        type: string
+        custom: []
+      status:
+        name: status
+        description: "nullable The brand's status."
+        required: false
+        example: true
+        type: boolean
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "result": "Brand created successfully"
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/brand/update
+    metadata:
+      title: 'Update brand'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: "The brand's id."
+        required: true
+        example: 18
+        type: integer
+        custom: []
+      name:
+        name: name
+        description: "nullable The brand's name."
+        required: false
+        example: corporis
+        type: string
+        custom: []
+      status:
+        name: status
+        description: "nullable The brand's status."
+        required: false
+        example: false
+        type: boolean
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "result": "Brand updated successfully"
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: api/brand/delete
+    metadata:
+      title: 'Delete brand'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: "The brand's id."
+        required: true
+        example: 20
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "result": "Brand deleted successfully"
+          }
+        headers: []
+        description: '200'
+    responseFields: []

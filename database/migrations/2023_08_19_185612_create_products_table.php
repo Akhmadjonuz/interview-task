@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name', 100)->unique();
             $table->string('photo', 100)->nullable();
+            $table->float('price', 20, 2)->default(0.00);
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->unsignedBigInteger('brand_id');

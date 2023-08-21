@@ -270,7 +270,6 @@ INTRO
     'example_languages' => [
         'bash',
         'javascript',
-        'php',
     ],
 
     /*
@@ -308,6 +307,11 @@ INTRO
     ],
 
     /*
+     * Endpoints which don't have a @group will be placed in this default group.
+     */
+    'default_group' => 'Endpoints',
+
+    /*
      * Custom logo path. This will be used as the value of the src attribute for the <img> tag,
      * so make sure it points to an accessible URL or path. Set to false to not use a logo.
      *
@@ -317,6 +321,12 @@ INTRO
      *
      */
     'logo' => false,
+
+    /*
+     * If you would like the package to generate the same example values for parameters on each run,
+     * set this to any number (eg. 1234)
+     */
+    'faker_seed' => null,
 
     /**
      * The strategies Scribe will use to extract information about your routes at each stage.
@@ -376,84 +386,5 @@ INTRO
      * Tell Scribe which connections should be transacted here.
      * If you only use one db connection, you can leave this as is.
      */
-    'database_connections_to_transact' => [config('database.default')],
-    'groups' => [
-        /*
-         * Endpoints which don't have a @group will be placed in this default group.
-         */
-        'default' => 'Endpoints',
-        /*
-         * By default, Scribe will sort groups alphabetically, and endpoints in the order their routes are defined.
-         * You can override this by listing the groups, subgroups and endpoints here in the order you want them.
-         *
-         * Any groups, subgroups or endpoints you don't list here will be added as usual after the ones here.
-         * If an endpoint/subgroup is listed under a group it doesn't belong in, it will be ignored.
-         * Note: you must include the initial '/' when writing an endpoint.
-         */
-        'order' => [
-            'Ads' => [
-                'Create new ad',
-                'Delete ad',
-                'Edit ad',
-            ],
-            'Authentication' => [
-                'Log in the user.',
-                'Log out the user.',
-            ],
-            'Endpoints' => [
-                'GET Tariffs',
-                'GET Games',
-                'GET Types',
-                'GET Ads',
-            ],
-            'Games' => [
-                'Create new game',
-                'Delete game',
-                'Edit game',
-            ],
-            'GifCards' => [
-                'Create gifcards',
-                'Delete gifcards',
-            ],
-            'Promo Codes' => [
-                'Get all promo codes',
-                'Create promo code',
-                'Delete promo code',
-                'Update promo code',
-            ],
-            'Tariffs' => [
-                'Create new tariff',
-                'Delete tariff',
-                'Edit tariff',
-            ],
-            'Users' => [
-                'Users create',
-                'check verification code',
-            ],
-        ],
-    ],
-    /**
-     * Customize the "Last updated" value displayed in the docs by specifying tokens and formats.
-     * Examples:
-     * - {date:F j Y} => March 28, 2022
-     * - {git:short} => Short hash of the last Git commit
-     *
-     * Available tokens are `{date:<format>}` and `{git:<format>}`.
-     * The format you pass to `date` will be passed to PHP's `date()` function.
-     * The format you pass to `git` can be either "short" or "long".
-     */
-    'last_updated' => 'Last updated: {date:F j, Y}',
-    'examples' => [
-        /*
-         * If you would like the package to generate the same example values for parameters on each run,
-         * set this to any number (eg. 1234)
-         */
-        'faker_seed' => null,
-        /*
-         * With API resources and transformers, Scribe tries to generate example models to use in your API responses.
-         * By default, Scribe will try the model's factory, and if that fails, try fetching the first from the database.
-         * You can reorder or remove strategies here.
-         */
-        'models_source' => ['factoryCreate', 'factoryMake', 'databaseFirst'],
-    ]
+    'database_connections_to_transact' => [config('database.default')]
 ];
