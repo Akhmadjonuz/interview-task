@@ -3,28 +3,53 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
 {
-    /**
-     * The list of the inputs that are never flashed to the session on validation exceptions.
-     *
-     * @var array<int, string>
-     */
-    protected $dontFlash = [
-        'current_password',
-        'password',
-        'password_confirmation',
-    ];
+  /**
+   * A list of the exception types that are not reported.
+   *
+   * @var array<int, class-string<Throwable>>
+   */
+  protected $dontReport = [
+    //
+  ];
 
-    /**
-     * Register the exception handling callbacks for the application.
-     */
-    public function register(): void
-    {
-        $this->reportable(function (Throwable $e) {
-            //
-        });
-    }
+  /**
+   * A list of the inputs that are never flashed for validation exceptions.
+   *
+   * @var array<int, string>
+   */
+  protected $dontFlash = [
+    'current_password',
+    'password',
+    'password_confirmation',
+  ];
+
+  /**
+   * Register the exception handling callbacks for the application.
+   *
+   * @return void
+   */
+  public function register()
+  {
+    $this->reportable(function (Throwable $e) {
+      //
+    });
+
+    $this->renderable(function (AccessDeniedHttpException $e, $request) {
+      return ($request->is('api/*'))
+        ? response()->json('Access denied for this user', 403)
+        : $e;
+    });
+
+    $this->renderable(function (\ErrorException $e, $request) {
+      return ($request->is('api/*'))
+        ? response()->json('Internal Error Exception', 500)
+        : $e;
+    });
+
+  }
 }

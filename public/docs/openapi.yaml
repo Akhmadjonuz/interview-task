@@ -1,0 +1,60 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://task.beta'
+paths:
+  /api/login:
+    post:
+      summary: 'Log in the user.'
+      operationId: logInTheUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"result\": [\n \"id\": 1,\n \"phone\": \"793631747611\",\n \"role\": 2,\n \"token\": \"eyJ0eXA...\"\n]\n}"
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: "Credential don't match or password error"
+                properties:
+                  result:
+                    type: string
+                    example: "Credential don't match or password error"
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: integer
+                  description: "The user's phone number."
+                  example: 1
+                password:
+                  type: string
+                  description: "The user's password."
+                  example: 8Gel(k^zbgb<P
+              required:
+                - phone
+                - password
+      security: []
+tags:
+  -
+    name: Authentication
+    description: ''
