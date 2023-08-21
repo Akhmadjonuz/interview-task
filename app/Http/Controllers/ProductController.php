@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Products\CreateProductRequest;
+use App\Http\Requests\Products\SearchProductRequest;
 use App\Http\Requests\Products\ShowProductRequest;
 use App\Http\Requests\Products\UpdateProductRequest;
 use App\Models\Product;
@@ -11,6 +12,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -21,7 +23,9 @@ class ProductController extends Controller
      * 
      * Get product list
      * 
-     * @authenticated
+     * @queryParam price string The product's price.
+     * @queryParam category_id integer The product's category id.
+     * @queryParam brand_id integer The product's brand id.
      * 
      * @response {
      * "result": [
@@ -37,8 +41,10 @@ class ProductController extends Controller
         try {
             $data = $request->validated();
 
+            // get product list
             $query = Product::query()->with(['category', 'brand'])->orderBy('id', 'desc');
 
+            // filter by price, category_id, brand_id
             if (isset($data['price']))
                 $query->where('price', $data['price']);
 
@@ -51,6 +57,68 @@ class ProductController extends Controller
             // make pagination
             $data = $query->paginate(10);
 
+            // return response
+            return $this->success($data);
+        } catch (\Exception $e) {
+            return $this->log($e);
+        }
+    }
+
+    /**
+     * @group Product
+     * 
+     * Search product
+     * 
+     * @queryParam id integer The product's id.
+     * @queryParam name string The product's name.
+     * @queryParam slug string The product's slug.
+     * 
+     * @response {
+     * "result": [
+     * ]
+     * }
+     * 
+     * @param SearchProductRequest $request
+     * @return JsonResponse
+     */
+
+    public function search(SearchProductRequest $request)
+    {
+        try {
+            $data = $request->validated();
+
+            // Initialize the query
+            $query = Product::query()->with(['category', 'brand'])->orderBy('id', 'desc');
+
+            // Search by id
+            if (isset($data['id'])) {
+                $query->where('id', $data['id']);
+            }
+
+            // Search by name
+            if (isset($data['name'])) {
+                $query->where('name', 'like', '%' . $data['name'] . '%');
+            }
+
+            // Search by slug
+            if (isset($data['slug'])) {
+                $slug = mb_stripos($data['slug'], '-') === false
+                    ? Str::slug($data['slug'], '-')
+                    : $data['slug'];
+
+                $query->where(function ($q) use ($slug) {
+                    $q->whereHas('category', function ($categoryQuery) use ($slug) {
+                        $categoryQuery->where('slug', 'like', '%' . $slug . '%');
+                    })->orWhereHas('brand', function ($brandQuery) use ($slug) {
+                        $brandQuery->where('slug', 'like', '%' . $slug . '%');
+                    });
+                });
+            }
+
+            // Pagination
+            $data = $query->paginate(10);
+
+            // Return response
             return $this->success($data);
         } catch (\Exception $e) {
             return $this->log($e);
@@ -90,12 +158,14 @@ class ProductController extends Controller
             $status = $data['status'] ?? true;
             $price = $data['price'];
 
+            // begin transaction to save data
             DB::beginTransaction();
 
             // create product
             $product = new Product;
             $product->name = $name;
 
+            // upload photo if exists
             if ($request->hasFile('photo')) {
                 $photo = $request->file('photo');
                 $path = $photo->store('public/products');
@@ -106,10 +176,14 @@ class ProductController extends Controller
             $product->category_id = $category_id;
             $product->brand_id = $brand_id;
             $product->status = $status;
+
+            // save product
             $product->save();
 
+            // commit transaction
             DB::commit();
 
+            // return response
             return $this->success('Product created successfully');
         } catch (\Exception $e) {
             $this->log($e);
@@ -146,6 +220,7 @@ class ProductController extends Controller
 
             $id = $data['id'];
 
+            // begin transaction to save data
             DB::beginTransaction();
 
             // update product
@@ -153,6 +228,7 @@ class ProductController extends Controller
 
             $product->name = $data['name'] ?? $product->name;
 
+            // upload photo if exists
             if ($request->hasFile('photo')) {
                 $photo = $request->file('photo');
                 $path = $photo->store('public/products');
@@ -163,10 +239,14 @@ class ProductController extends Controller
             $product->category_id = $data['category_id'] ?? $product->category_id;
             $product->brand_id = $data['brand_id'] ?? $product->brand_id;
             $product->status = $data['status'] ?? $product->status;
+
+            // save product
             $product->save();
 
+            // commit transaction
             DB::commit();
 
+            // return response
             return $this->success('Product updated successfully');
         } catch (\Exception $e) {
             $this->log($e);
@@ -193,9 +273,11 @@ class ProductController extends Controller
     public function delete(Request $request): JsonResponse
     {
         try {
+            // check if user is admin
             if (Auth::user()->role !== 1)
                 return $this->error('Access denied for this user');
 
+            // validate request
             $data = $request->validate(
                 [
                     'id' => 'required|integer|exists:products,id',
@@ -209,14 +291,17 @@ class ProductController extends Controller
 
             $id = $data['id'];
 
+            // begin transaction to save data
             DB::beginTransaction();
 
             // delete product
             $product = Product::find($id);
             $product->delete();
 
+            // commit transaction
             DB::commit();
 
+            // return response
             return $this->success('Product deleted successfully');
         } catch (\Exception $e) {
             $this->log($e);

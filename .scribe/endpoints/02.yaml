@@ -3,39 +3,6 @@ description: ''
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: 'api/category/show{id?}'
-    metadata:
-      title: 'Get category list'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the .'
-        required: false
-        example: similique
-        type: string
-        custom: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 200
-        content: |-
-          {
-          "result": [
-          ]
-          }
-        headers: []
-        description: '200'
-    responseFields: []
-  -
-    httpMethods:
       - POST
     uri: api/category/create
     metadata:
@@ -53,14 +20,14 @@ endpoints:
         name: name
         description: "The category's name."
         required: true
-        example: voluptatum
+        example: omnis
         type: string
         custom: []
       status:
         name: status
         description: "nullable The category's status."
         required: false
-        example: false
+        example: true
         type: boolean
         custom: []
     responses:
@@ -92,14 +59,14 @@ endpoints:
         name: id
         description: "The category's id."
         required: true
-        example: 9
+        example: 17
         type: integer
         custom: []
       name:
         name: name
         description: "nullable The category's name."
         required: false
-        example: voluptas
+        example: qui
         type: string
         custom: []
       status:
@@ -138,7 +105,7 @@ endpoints:
         name: id
         description: "The category's id."
         required: true
-        example: 7
+        example: 2
         type: integer
         custom: []
     responses:

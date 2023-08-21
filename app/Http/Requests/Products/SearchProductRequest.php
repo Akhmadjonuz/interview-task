@@ -4,7 +4,7 @@ namespace App\Http\Requests\Products;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ShowProductRequest extends FormRequest
+class SearchProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,9 @@ class ShowProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'price' => 'nullable|integer',
-            'category_id' => 'nullable|integer|exists:categories,id',
-            'brand_id' => 'nullable|integer|exists:brands,id',
+            'id' => 'nullable|integer|exists:products,id',
+            'slug' => 'nullable|string',
+            'name' => 'nullable|string',
         ];
     }
 
@@ -39,11 +39,10 @@ class ShowProductRequest extends FormRequest
     public function messages()
     {
         return [
-            'price.numeric' => 'Price must be a number',
-            'category_id.integer' => 'Category id must be an integer',
-            'category_id.exists' => 'Category id does not exist',
-            'brand_id.integer' => 'Brand id must be an integer',
-            'brand_id.exists' => 'Brand id does not exist',
+            'id.integer' => 'The id must be an integer.',
+            'id.exists' => 'The id must be exists in products table.',
+            'slug.string' => 'The slug must be a string.',
+            'name.string' => 'The name must be a string.',
         ];
     }
 }

@@ -8,11 +8,18 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\AuthController;
 
 
-// login user route
+// no authentication routes
 Route::post('/login', [AuthController::class, 'login']);
-
-// register user route
 Route::post('/register', [AuthController::class, 'register']);
+
+Route::prefix('product')->group(function () {
+    Route::get('/show', [ProductController::class, 'show']);
+    Route::get('/search', [ProductController::class, 'search']);
+});
+
+Route::get('/show{id?}', [CategoryController::class, 'show']);
+Route::get('/show{id?}', [BrandController::class, 'show']);
+
 
 // Authenticated routes
 Route::group(['middleware' => 'auth:sanctum'], function () {
@@ -20,14 +27,12 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     // Product routes
     Route::prefix('product')->group(function () {
-        Route::get('/show', [ProductController::class, 'show']);
         Route::post('/create', [ProductController::class, 'create']);
         Route::put('/update', [ProductController::class, 'update']);
     });
 
     // Category routes
     Route::prefix('category')->group(function () {
-        Route::get('/show{id?}', [CategoryController::class, 'show']);
         Route::post('/create', [CategoryController::class, 'create']);
         Route::put('/update', [CategoryController::class, 'update']);
         Route::delete('/delete', [CategoryController::class, 'delete']);
@@ -35,7 +40,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     // Brand routes
     Route::prefix('brand')->group(function () {
-        Route::get('/show{id?}', [BrandController::class, 'show']);
         Route::post('/create', [BrandController::class, 'create']);
         Route::put('/update', [BrandController::class, 'update']);
         Route::delete('/delete', [BrandController::class, 'delete']);

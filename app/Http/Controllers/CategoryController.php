@@ -21,8 +21,6 @@ class CategoryController extends Controller
      * 
      * Get category list
      * 
-     * @authenticated
-     * 
      * @response {
      * "result": [
      * ]
@@ -117,7 +115,7 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request): JsonResponse
     {
         try {
-            $data = $request->all();
+            $data = $request->validated();
 
             $id = $data['id'];
             $category = Category::find($id);

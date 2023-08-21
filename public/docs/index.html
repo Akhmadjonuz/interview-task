@@ -90,10 +90,7 @@
                     <a href="#brand">Brand</a>
                 </li>
                                     <ul id="tocify-subheader-brand" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="brand-GETapi-brand-show-id--">
-                        <a href="#brand-GETapi-brand-show-id--">Get brand list</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="brand-POSTapi-brand-create">
+                                                    <li class="tocify-item level-2" data-unique="brand-POSTapi-brand-create">
                         <a href="#brand-POSTapi-brand-create">Create brand</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="brand-PUTapi-brand-update">
@@ -102,6 +99,9 @@
                                     <li class="tocify-item level-2" data-unique="brand-DELETEapi-brand-delete">
                         <a href="#brand-DELETEapi-brand-delete">Delete brand</a>
                     </li>
+                                    <li class="tocify-item level-2" data-unique="brand-GETapi-show-id--">
+                        <a href="#brand-GETapi-show-id--">Get brand list</a>
+                    </li>
                                                     </ul>
                             </ul>
                     <ul id="tocify-header-4" class="tocify-header">
@@ -109,10 +109,7 @@
                     <a href="#category">Category</a>
                 </li>
                                     <ul id="tocify-subheader-category" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="category-GETapi-category-show-id--">
-                        <a href="#category-GETapi-category-show-id--">Get category list</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="category-POSTapi-category-create">
+                                                    <li class="tocify-item level-2" data-unique="category-POSTapi-category-create">
                         <a href="#category-POSTapi-category-create">Create category</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="category-PUTapi-category-update">
@@ -136,6 +133,9 @@
                     </li>
                                     <li class="tocify-item level-2" data-unique="product-GETapi-product-show">
                         <a href="#product-GETapi-product-show">Get product list</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="product-GETapi-product-search">
+                        <a href="#product-GETapi-product-search">Search product</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -189,8 +189,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": 6,
-    \"password\": \"rem\"
+    \"phone\": 19,
+    \"password\": \"asperiores\"
 }"
 </code></pre></div>
 
@@ -206,8 +206,8 @@ const headers = {
 };
 
 let body = {
-    "phone": 6,
-    "password": "rem"
+    "phone": 19,
+    "password": "asperiores"
 };
 
 fetch(url, {
@@ -288,7 +288,7 @@ fetch(url, {
                 <input type="number"
                name="phone"
                data-endpoint="POSTapi-login"
-               value="6"
+               value="19"
                data-component="body" hidden>
     <br>
 <p>The user's phone number.</p>
@@ -298,7 +298,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-login"
-               value="rem"
+               value="asperiores"
                data-component="body" hidden>
     <br>
 <p>The user's password.</p>
@@ -322,9 +322,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": 13,
-    \"password\": \"illum\",
-    \"password_confirmation\": \"dolorem\"
+    \"phone\": 11,
+    \"password\": \"non\",
+    \"password_confirmation\": \"non\"
 }"
 </code></pre></div>
 
@@ -340,9 +340,9 @@ const headers = {
 };
 
 let body = {
-    "phone": 13,
-    "password": "illum",
-    "password_confirmation": "dolorem"
+    "phone": 11,
+    "password": "non",
+    "password_confirmation": "non"
 };
 
 fetch(url, {
@@ -423,7 +423,7 @@ fetch(url, {
                 <input type="number"
                name="phone"
                data-endpoint="POSTapi-register"
-               value="13"
+               value="11"
                data-component="body" hidden>
     <br>
 <p>The user's phone number.</p>
@@ -433,7 +433,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-register"
-               value="illum"
+               value="non"
                data-component="body" hidden>
     <br>
 <p>The user's password.</p>
@@ -443,7 +443,7 @@ fetch(url, {
                 <input type="text"
                name="password_confirmation"
                data-endpoint="POSTapi-register"
-               value="dolorem"
+               value="non"
                data-component="body" hidden>
     <br>
 <p>The value and <code>password</code> must match.</p>
@@ -550,113 +550,6 @@ fetch(url, {
 
     
 
-            <h2 id="brand-GETapi-brand-show-id--">Get brand list</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-brand-show-id--">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://task.beta/api/brand/showfugit" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://task.beta/api/brand/showfugit"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-brand-show-id--">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;result&quot;: []
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-brand-show-id--" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-brand-show-id--"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-brand-show-id--"></code></pre>
-</span>
-<span id="execution-error-GETapi-brand-show-id--" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-brand-show-id--"></code></pre>
-</span>
-<form id="form-GETapi-brand-show-id--" data-method="GET"
-      data-path="api/brand/show{id?}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-brand-show-id--', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-brand-show-id--"
-                    onclick="tryItOut('GETapi-brand-show-id--');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-brand-show-id--"
-                    onclick="cancelTryOut('GETapi-brand-show-id--');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-brand-show-id--" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/brand/show{id?}</code></b>
-        </p>
-                <p>
-            <label id="auth-GETapi-brand-show-id--" hidden>Authorization header:
-                <b><code>Bearer </code></b><input type="text"
-                                                                name="Authorization"
-                                                                data-prefix="Bearer "
-                                                                data-endpoint="GETapi-brand-show-id--"
-                                                                data-component="header"></label>
-        </p>
-                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-                <input type="text"
-               name="id"
-               data-endpoint="GETapi-brand-show-id--"
-               value="fugit"
-               data-component="url" hidden>
-    <br>
-<p>The ID of the .</p>
-            </p>
-                    </form>
-
             <h2 id="brand-POSTapi-brand-create">Create brand</h2>
 
 <p>
@@ -675,7 +568,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"ad\",
+    \"name\": \"soluta\",
     \"status\": true
 }"
 </code></pre></div>
@@ -692,7 +585,7 @@ const headers = {
 };
 
 let body = {
-    "name": "ad",
+    "name": "soluta",
     "status": true
 };
 
@@ -768,7 +661,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-brand-create"
-               value="ad"
+               value="soluta"
                data-component="body" hidden>
     <br>
 <p>The brand's name.</p>
@@ -814,8 +707,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": 18,
-    \"name\": \"corporis\",
+    \"id\": 1,
+    \"name\": \"illo\",
     \"status\": false
 }"
 </code></pre></div>
@@ -832,8 +725,8 @@ const headers = {
 };
 
 let body = {
-    "id": 18,
-    "name": "corporis",
+    "id": 1,
+    "name": "illo",
     "status": false
 };
 
@@ -909,7 +802,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTapi-brand-update"
-               value="18"
+               value="1"
                data-component="body" hidden>
     <br>
 <p>The brand's id.</p>
@@ -919,7 +812,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="PUTapi-brand-update"
-               value="corporis"
+               value="illo"
                data-component="body" hidden>
     <br>
 <p>nullable The brand's name.</p>
@@ -965,7 +858,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": 20
+    \"id\": 2
 }"
 </code></pre></div>
 
@@ -981,7 +874,7 @@ const headers = {
 };
 
 let body = {
-    "id": 20
+    "id": 2
 };
 
 fetch(url, {
@@ -1056,18 +949,14 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEapi-brand-delete"
-               value="20"
+               value="2"
                data-component="body" hidden>
     <br>
 <p>The brand's id.</p>
         </p>
         </form>
 
-        <h1 id="category">Category</h1>
-
-    
-
-            <h2 id="category-GETapi-category-show-id--">Get category list</h2>
+            <h2 id="brand-GETapi-show-id--">Get brand list</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1075,20 +964,20 @@ fetch(url, {
 
 
 
-<span id="example-requests-GETapi-category-show-id--">
+<span id="example-requests-GETapi-show-id--">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://task.beta/api/category/showsimilique" \
+    --get "http://task.beta/api/showperspiciatis" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://task.beta/api/category/showsimilique"
+    "http://task.beta/api/showperspiciatis"
 );
 
 const headers = {
@@ -1103,7 +992,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-category-show-id--">
+<span id="example-responses-GETapi-show-id--">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -1114,51 +1003,51 @@ fetch(url, {
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-category-show-id--" hidden>
+<span id="execution-results-GETapi-show-id--" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-category-show-id--"></span>:
+                id="execution-response-status-GETapi-show-id--"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-category-show-id--"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-show-id--"></code></pre>
 </span>
-<span id="execution-error-GETapi-category-show-id--" hidden>
+<span id="execution-error-GETapi-show-id--" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-category-show-id--"></code></pre>
+    <pre><code id="execution-error-message-GETapi-show-id--"></code></pre>
 </span>
-<form id="form-GETapi-category-show-id--" data-method="GET"
-      data-path="api/category/show{id?}"
+<form id="form-GETapi-show-id--" data-method="GET"
+      data-path="api/show{id?}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-category-show-id--', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-show-id--', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-category-show-id--"
-                    onclick="tryItOut('GETapi-category-show-id--');">Try it out ⚡
+                    id="btn-tryout-GETapi-show-id--"
+                    onclick="tryItOut('GETapi-show-id--');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-category-show-id--"
-                    onclick="cancelTryOut('GETapi-category-show-id--');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-show-id--"
+                    onclick="cancelTryOut('GETapi-show-id--');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-category-show-id--" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-show-id--" hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/category/show{id?}</code></b>
+            <b><code>api/show{id?}</code></b>
         </p>
                 <p>
-            <label id="auth-GETapi-category-show-id--" hidden>Authorization header:
+            <label id="auth-GETapi-show-id--" hidden>Authorization header:
                 <b><code>Bearer </code></b><input type="text"
                                                                 name="Authorization"
                                                                 data-prefix="Bearer "
-                                                                data-endpoint="GETapi-category-show-id--"
+                                                                data-endpoint="GETapi-show-id--"
                                                                 data-component="header"></label>
         </p>
                 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
@@ -1166,13 +1055,17 @@ fetch(url, {
                 <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
                 <input type="text"
                name="id"
-               data-endpoint="GETapi-category-show-id--"
-               value="similique"
+               data-endpoint="GETapi-show-id--"
+               value="perspiciatis"
                data-component="url" hidden>
     <br>
 <p>The ID of the .</p>
             </p>
                     </form>
+
+        <h1 id="category">Category</h1>
+
+    
 
             <h2 id="category-POSTapi-category-create">Create category</h2>
 
@@ -1192,8 +1085,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"voluptatum\",
-    \"status\": false
+    \"name\": \"omnis\",
+    \"status\": true
 }"
 </code></pre></div>
 
@@ -1209,8 +1102,8 @@ const headers = {
 };
 
 let body = {
-    "name": "voluptatum",
-    "status": false
+    "name": "omnis",
+    "status": true
 };
 
 fetch(url, {
@@ -1285,7 +1178,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-category-create"
-               value="voluptatum"
+               value="omnis"
                data-component="body" hidden>
     <br>
 <p>The category's name.</p>
@@ -1331,8 +1224,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": 9,
-    \"name\": \"voluptas\",
+    \"id\": 17,
+    \"name\": \"qui\",
     \"status\": false
 }"
 </code></pre></div>
@@ -1349,8 +1242,8 @@ const headers = {
 };
 
 let body = {
-    "id": 9,
-    "name": "voluptas",
+    "id": 17,
+    "name": "qui",
     "status": false
 };
 
@@ -1426,7 +1319,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTapi-category-update"
-               value="9"
+               value="17"
                data-component="body" hidden>
     <br>
 <p>The category's id.</p>
@@ -1436,7 +1329,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="PUTapi-category-update"
-               value="voluptas"
+               value="qui"
                data-component="body" hidden>
     <br>
 <p>nullable The category's name.</p>
@@ -1482,7 +1375,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": 7
+    \"id\": 2
 }"
 </code></pre></div>
 
@@ -1498,7 +1391,7 @@ const headers = {
 };
 
 let body = {
-    "id": 7
+    "id": 2
 };
 
 fetch(url, {
@@ -1573,7 +1466,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEapi-category-delete"
-               value="7"
+               value="2"
                data-component="body" hidden>
     <br>
 <p>The category's id.</p>
@@ -1601,12 +1494,12 @@ fetch(url, {
     "http://task.beta/api/product/create" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "name=nam" \
-    --form "price=eaque" \
-    --form "category_id=3" \
-    --form "brand_id=10" \
-    --form "status=1" \
-    --form "photo=@C:\OSPanel\userdata\temp\phpF491.tmp" </code></pre></div>
+    --form "name=quo" \
+    --form "price=nostrum" \
+    --form "category_id=4" \
+    --form "brand_id=6" \
+    --form "status=" \
+    --form "photo=@C:\OSPanel\userdata\temp\php88A3.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1620,11 +1513,11 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('name', 'nam');
-body.append('price', 'eaque');
-body.append('category_id', '3');
-body.append('brand_id', '10');
-body.append('status', '1');
+body.append('name', 'quo');
+body.append('price', 'nostrum');
+body.append('category_id', '4');
+body.append('brand_id', '6');
+body.append('status', '');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -1699,7 +1592,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-product-create"
-               value="nam"
+               value="quo"
                data-component="body" hidden>
     <br>
 <p>The product's name.</p>
@@ -1719,7 +1612,7 @@ fetch(url, {
                 <input type="text"
                name="price"
                data-endpoint="POSTapi-product-create"
-               value="eaque"
+               value="nostrum"
                data-component="body" hidden>
     <br>
 <p>The product's price.</p>
@@ -1729,7 +1622,7 @@ fetch(url, {
                 <input type="number"
                name="category_id"
                data-endpoint="POSTapi-product-create"
-               value="3"
+               value="4"
                data-component="body" hidden>
     <br>
 <p>The product's category id.</p>
@@ -1739,7 +1632,7 @@ fetch(url, {
                 <input type="number"
                name="brand_id"
                data-endpoint="POSTapi-product-create"
-               value="10"
+               value="6"
                data-component="body" hidden>
     <br>
 <p>The product's brand id.</p>
@@ -1784,13 +1677,13 @@ fetch(url, {
     "http://task.beta/api/product/update" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "id=3" \
-    --form "name=dolorem" \
-    --form "price=aut" \
-    --form "category_id=17" \
-    --form "brand_id=13" \
-    --form "status=1" \
-    --form "photo=@C:\OSPanel\userdata\temp\phpF4A4.tmp" </code></pre></div>
+    --form "id=12" \
+    --form "name=tenetur" \
+    --form "price=sit" \
+    --form "category_id=1" \
+    --form "brand_id=8" \
+    --form "status=" \
+    --form "photo=@C:\OSPanel\userdata\temp\php88B6.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1804,12 +1697,12 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('id', '3');
-body.append('name', 'dolorem');
-body.append('price', 'aut');
-body.append('category_id', '17');
-body.append('brand_id', '13');
-body.append('status', '1');
+body.append('id', '12');
+body.append('name', 'tenetur');
+body.append('price', 'sit');
+body.append('category_id', '1');
+body.append('brand_id', '8');
+body.append('status', '');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -1884,7 +1777,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTapi-product-update"
-               value="3"
+               value="12"
                data-component="body" hidden>
     <br>
 <p>The product's id.</p>
@@ -1894,7 +1787,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="PUTapi-product-update"
-               value="dolorem"
+               value="tenetur"
                data-component="body" hidden>
     <br>
 <p>nullable The product's name.</p>
@@ -1914,7 +1807,7 @@ fetch(url, {
                 <input type="text"
                name="price"
                data-endpoint="PUTapi-product-update"
-               value="aut"
+               value="sit"
                data-component="body" hidden>
     <br>
 <p>nullable The product's price.</p>
@@ -1924,7 +1817,7 @@ fetch(url, {
                 <input type="number"
                name="category_id"
                data-endpoint="PUTapi-product-update"
-               value="17"
+               value="1"
                data-component="body" hidden>
     <br>
 <p>nullable The product's category id.</p>
@@ -1934,7 +1827,7 @@ fetch(url, {
                 <input type="number"
                name="brand_id"
                data-endpoint="PUTapi-product-update"
-               value="13"
+               value="8"
                data-component="body" hidden>
     <br>
 <p>nullable The product's brand id.</p>
@@ -1965,7 +1858,6 @@ fetch(url, {
             <h2 id="product-GETapi-product-show">Get product list</h2>
 
 <p>
-<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -1976,13 +1868,13 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://task.beta/api/product/show" \
+    --get "http://task.beta/api/product/show?price=veniam&amp;category_id=2&amp;brand_id=10" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"price\": 64777.02,
-    \"category_id\": 16,
-    \"brand_id\": 10
+    \"price\": 19,
+    \"category_id\": 10,
+    \"brand_id\": 9
 }"
 </code></pre></div>
 
@@ -1992,15 +1884,23 @@ fetch(url, {
     "http://task.beta/api/product/show"
 );
 
+const params = {
+    "price": "veniam",
+    "category_id": "2",
+    "brand_id": "10",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
-    "price": 64777.02,
-    "category_id": 16,
-    "brand_id": 10
+    "price": 19,
+    "category_id": 10,
+    "brand_id": 9
 };
 
 fetch(url, {
@@ -2034,7 +1934,7 @@ fetch(url, {
 </span>
 <form id="form-GETapi-product-show" data-method="GET"
       data-path="api/product/show"
-      data-authed="1"
+      data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
@@ -2061,21 +1961,44 @@ fetch(url, {
             <small class="badge badge-green">GET</small>
             <b><code>api/product/show</code></b>
         </p>
-                <p>
-            <label id="auth-GETapi-product-show" hidden>Authorization header:
-                <b><code>Bearer </code></b><input type="text"
-                                                                name="Authorization"
-                                                                data-prefix="Bearer "
-                                                                data-endpoint="GETapi-product-show"
-                                                                data-component="header"></label>
-        </p>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>price</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="price"
+               data-endpoint="GETapi-product-show"
+               value="veniam"
+               data-component="query" hidden>
+    <br>
+<p>The product's price.</p>
+            </p>
+                    <p>
+                <b><code>category_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="category_id"
+               data-endpoint="GETapi-product-show"
+               value="2"
+               data-component="query" hidden>
+    <br>
+<p>The product's category id.</p>
+            </p>
+                    <p>
+                <b><code>brand_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="brand_id"
+               data-endpoint="GETapi-product-show"
+               value="10"
+               data-component="query" hidden>
+    <br>
+<p>The product's brand id.</p>
+            </p>
                         <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
-            <b><code>price</code></b>&nbsp;&nbsp;<small>number</small>     <i>optional</i> &nbsp;
+            <b><code>price</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
                 <input type="number"
                name="price"
                data-endpoint="GETapi-product-show"
-               value="64777.02"
+               value="19"
                data-component="body" hidden>
     <br>
 
@@ -2085,7 +2008,7 @@ fetch(url, {
                 <input type="number"
                name="category_id"
                data-endpoint="GETapi-product-show"
-               value="16"
+               value="10"
                data-component="body" hidden>
     <br>
 
@@ -2095,7 +2018,177 @@ fetch(url, {
                 <input type="number"
                name="brand_id"
                data-endpoint="GETapi-product-show"
-               value="10"
+               value="9"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+            <h2 id="product-GETapi-product-search">Search product</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-product-search">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://task.beta/api/product/search?id=8&amp;name=doloremque&amp;slug=et" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"id\": 4,
+    \"slug\": \"voluptatem\",
+    \"name\": \"praesentium\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://task.beta/api/product/search"
+);
+
+const params = {
+    "id": "8",
+    "name": "doloremque",
+    "slug": "et",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": 4,
+    "slug": "voluptatem",
+    "name": "praesentium"
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-product-search">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;result&quot;: []
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-product-search" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-product-search"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-product-search"></code></pre>
+</span>
+<span id="execution-error-GETapi-product-search" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-product-search"></code></pre>
+</span>
+<form id="form-GETapi-product-search" data-method="GET"
+      data-path="api/product/search"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-product-search', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-product-search"
+                    onclick="tryItOut('GETapi-product-search');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-product-search"
+                    onclick="cancelTryOut('GETapi-product-search');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-product-search" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/product/search</code></b>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-product-search"
+               value="8"
+               data-component="query" hidden>
+    <br>
+<p>The product's id.</p>
+            </p>
+                    <p>
+                <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="GETapi-product-search"
+               value="doloremque"
+               data-component="query" hidden>
+    <br>
+<p>The product's name.</p>
+            </p>
+                    <p>
+                <b><code>slug</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="slug"
+               data-endpoint="GETapi-product-search"
+               value="et"
+               data-component="query" hidden>
+    <br>
+<p>The product's slug.</p>
+            </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-product-search"
+               value="4"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>slug</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="slug"
+               data-endpoint="GETapi-product-search"
+               value="voluptatem"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="GETapi-product-search"
+               value="praesentium"
                data-component="body" hidden>
     <br>
 

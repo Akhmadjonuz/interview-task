@@ -40,20 +40,27 @@ class AuthController extends Controller
      * @return JsonResponse
      *
      */
+
     public function login(LoginRequest $request): JsonResponse
     {
         try {
+            // Validate the incoming request data
             $data = $request->validated();
 
+            // Extract phone and password from the validated data
             $phone = $data['phone'];
             $password = $data['password'];
 
-            if (!Auth::attempt(['phone' => $phone, 'password' => $password]))
-                return $this->error('Credential don\'t match or password error');
+            // Attempt to authenticate the user with provided phone and password
+            if (!Auth::attempt(['phone' => $phone, 'password' => $password])) {
+                // If authentication fails, return an error message
+                return $this->error('Credentials don\'t match or password error');
+            }
 
-            // get user information
-            $user = User::where('phone', $phone)->first();
+            // Authentication successful, proceed to retrieve user information
+            $user = User::where('phone', $phone)->first(); // Find the user by phone
 
+            // Return a success response with user information and a token
             return $this->success([
                 'id' => $user->id,
                 'phone' => $user->phone,
@@ -64,6 +71,7 @@ class AuthController extends Controller
             return $this->log($e);
         }
     }
+
 
     /**
      * @group Authentication

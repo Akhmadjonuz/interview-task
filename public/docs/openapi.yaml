@@ -58,11 +58,11 @@ paths:
                 phone:
                   type: integer
                   description: "The user's phone number."
-                  example: 6
+                  example: 19
                 password:
                   type: string
                   description: "The user's password."
-                  example: rem
+                  example: asperiores
               required:
                 - phone
                 - password
@@ -118,15 +118,15 @@ paths:
                 phone:
                   type: integer
                   description: "The user's phone number."
-                  example: 13
+                  example: 11
                 password:
                   type: string
                   description: "The user's password."
-                  example: illum
+                  example: non
                 password_confirmation:
                   type: string
                   description: 'The value and <code>password</code> must match.'
-                  example: dolorem
+                  example: non
               required:
                 - phone
                 - password
@@ -166,55 +166,6 @@ paths:
                     example: 'Successfully logged out'
       tags:
         - Authentication
-  '/api/brand/show{id}':
-    get:
-      summary: 'Get brand list'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  result: []
-                properties:
-                  result:
-                    type: array
-                    example: []
-      tags:
-        - Brand
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'Optional parameter. The ID of the .'
-        required: true
-        schema:
-          type: string
-        examples:
-          omitted:
-            summary: 'When the value is omitted'
-            value: ''
-          present:
-            summary: 'When the value is present'
-            value: fugit
   /api/brand/create:
     post:
       summary: 'Create brand'
@@ -259,7 +210,7 @@ paths:
                 name:
                   type: string
                   description: "The brand's name."
-                  example: ad
+                  example: soluta
                 status:
                   type: boolean
                   description: "nullable The brand's status."
@@ -310,11 +261,11 @@ paths:
                 id:
                   type: integer
                   description: "The brand's id."
-                  example: 18
+                  example: 1
                 name:
                   type: string
                   description: "nullable The brand's name."
-                  example: corporis
+                  example: illo
                 status:
                   type: boolean
                   description: "nullable The brand's status."
@@ -365,12 +316,12 @@ paths:
                 id:
                   type: integer
                   description: "The brand's id."
-                  example: 20
+                  example: 2
               required:
                 - id
-  '/api/category/show{id}':
+  '/api/show{id}':
     get:
-      summary: 'Get category list'
+      summary: 'Get brand list'
       description: ''
       parameters:
         -
@@ -401,7 +352,7 @@ paths:
                     type: array
                     example: []
       tags:
-        - Category
+        - Brand
     parameters:
       -
         in: path
@@ -416,7 +367,7 @@ paths:
             value: ''
           present:
             summary: 'When the value is present'
-            value: similique
+            value: perspiciatis
   /api/category/create:
     post:
       summary: 'Create category'
@@ -461,11 +412,11 @@ paths:
                 name:
                   type: string
                   description: "The category's name."
-                  example: voluptatum
+                  example: omnis
                 status:
                   type: boolean
                   description: "nullable The category's status."
-                  example: false
+                  example: true
               required:
                 - name
   /api/category/update:
@@ -512,11 +463,11 @@ paths:
                 id:
                   type: integer
                   description: "The category's id."
-                  example: 9
+                  example: 17
                 name:
                   type: string
                   description: "nullable The category's name."
-                  example: voluptas
+                  example: qui
                 status:
                   type: boolean
                   description: "nullable The category's status."
@@ -567,7 +518,7 @@ paths:
                 id:
                   type: integer
                   description: "The category's id."
-                  example: 7
+                  example: 2
               required:
                 - id
   /api/product/create:
@@ -614,7 +565,7 @@ paths:
                 name:
                   type: string
                   description: "The product's name."
-                  example: nam
+                  example: quo
                 photo:
                   type: string
                   format: binary
@@ -622,19 +573,19 @@ paths:
                 price:
                   type: string
                   description: "The product's price."
-                  example: eaque
+                  example: nostrum
                 category_id:
                   type: integer
                   description: "The product's category id."
-                  example: 3
+                  example: 4
                 brand_id:
                   type: integer
                   description: "The product's brand id."
-                  example: 10
+                  example: 6
                 status:
                   type: boolean
                   description: "nullable The product's status."
-                  example: true
+                  example: false
               required:
                 - name
                 - photo
@@ -685,11 +636,11 @@ paths:
                 id:
                   type: integer
                   description: "The product's id."
-                  example: 3
+                  example: 12
                 name:
                   type: string
                   description: "nullable The product's name."
-                  example: dolorem
+                  example: tenetur
                 photo:
                   type: string
                   format: binary
@@ -697,19 +648,19 @@ paths:
                 price:
                   type: string
                   description: "nullable The product's price."
-                  example: aut
+                  example: sit
                 category_id:
                   type: integer
                   description: "nullable The product's category id."
-                  example: 17
+                  example: 1
                 brand_id:
                   type: integer
                   description: "nullable The product's brand id."
-                  example: 13
+                  example: 8
                 status:
                   type: boolean
                   description: "nullable The product's status."
-                  example: true
+                  example: false
               required:
                 - id
   /api/product/show:
@@ -717,6 +668,36 @@ paths:
       summary: 'Get product list'
       description: ''
       parameters:
+        -
+          in: query
+          name: price
+          description: "The product's price."
+          example: veniam
+          required: false
+          schema:
+            type: string
+            description: "The product's price."
+            example: veniam
+        -
+          in: query
+          name: category_id
+          description: "The product's category id."
+          example: 2
+          required: false
+          schema:
+            type: integer
+            description: "The product's category id."
+            example: 2
+        -
+          in: query
+          name: brand_id
+          description: "The product's brand id."
+          example: 10
+          required: false
+          schema:
+            type: integer
+            description: "The product's brand id."
+            example: 10
         -
           in: header
           name: Content-Type
@@ -754,17 +735,102 @@ paths:
               type: object
               properties:
                 price:
-                  type: number
+                  type: integer
                   description: ''
-                  example: 64777.02
+                  example: 19
                 category_id:
                   type: integer
                   description: ''
-                  example: 16
+                  example: 10
                 brand_id:
                   type: integer
                   description: ''
-                  example: 10
+                  example: 9
+      security: []
+  /api/product/search:
+    get:
+      summary: 'Search product'
+      description: ''
+      parameters:
+        -
+          in: query
+          name: id
+          description: "The product's id."
+          example: 8
+          required: false
+          schema:
+            type: integer
+            description: "The product's id."
+            example: 8
+        -
+          in: query
+          name: name
+          description: "The product's name."
+          example: doloremque
+          required: false
+          schema:
+            type: string
+            description: "The product's name."
+            example: doloremque
+        -
+          in: query
+          name: slug
+          description: "The product's slug."
+          example: et
+          required: false
+          schema:
+            type: string
+            description: "The product's slug."
+            example: et
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  result: []
+                properties:
+                  result:
+                    type: array
+                    example: []
+      tags:
+        - Product
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: ''
+                  example: 4
+                slug:
+                  type: string
+                  description: ''
+                  example: voluptatem
+                name:
+                  type: string
+                  description: ''
+                  example: praesentium
+      security: []
 tags:
   -
     name: Authentication

@@ -20,7 +20,7 @@ endpoints:
         name: name
         description: "The product's name."
         required: true
-        example: nam
+        example: quo
         type: string
         custom: []
       photo:
@@ -34,28 +34,28 @@ endpoints:
         name: price
         description: "The product's price."
         required: true
-        example: eaque
+        example: nostrum
         type: string
         custom: []
       category_id:
         name: category_id
         description: "The product's category id."
         required: true
-        example: 3
+        example: 4
         type: integer
         custom: []
       brand_id:
         name: brand_id
         description: "The product's brand id."
         required: true
-        example: 10
+        example: 6
         type: integer
         custom: []
       status:
         name: status
         description: "nullable The product's status."
         required: false
-        example: true
+        example: false
         type: boolean
         custom: []
     responses:
@@ -87,14 +87,14 @@ endpoints:
         name: id
         description: "The product's id."
         required: true
-        example: 3
+        example: 12
         type: integer
         custom: []
       name:
         name: name
         description: "nullable The product's name."
         required: false
-        example: dolorem
+        example: tenetur
         type: string
         custom: []
       photo:
@@ -108,28 +108,28 @@ endpoints:
         name: price
         description: "nullable The product's price."
         required: false
-        example: aut
+        example: sit
         type: string
         custom: []
       category_id:
         name: category_id
         description: "nullable The product's category id."
         required: false
-        example: 17
+        example: 1
         type: integer
         custom: []
       brand_id:
         name: brand_id
         description: "nullable The product's brand id."
         required: false
-        example: 13
+        example: 8
         type: integer
         custom: []
       status:
         name: status
         description: "nullable The product's status."
         required: false
-        example: true
+        example: false
         type: boolean
         custom: []
     responses:
@@ -149,34 +149,123 @@ endpoints:
     metadata:
       title: 'Get product list'
       description: ''
-      authenticated: true
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
-    queryParameters: []
+    queryParameters:
+      price:
+        name: price
+        description: "The product's price."
+        required: false
+        example: veniam
+        type: string
+        custom: []
+      category_id:
+        name: category_id
+        description: "The product's category id."
+        required: false
+        example: 2
+        type: integer
+        custom: []
+      brand_id:
+        name: brand_id
+        description: "The product's brand id."
+        required: false
+        example: 10
+        type: integer
+        custom: []
     bodyParameters:
       price:
         name: price
         description: ''
         required: false
-        example: 64777.02
-        type: number
+        example: 19
+        type: integer
         custom: []
       category_id:
         name: category_id
         description: ''
         required: false
-        example: 16
+        example: 10
         type: integer
         custom: []
       brand_id:
         name: brand_id
         description: ''
         required: false
-        example: 10
+        example: 9
         type: integer
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "result": [
+          ]
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/product/search
+    metadata:
+      title: 'Search product'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters:
+      id:
+        name: id
+        description: "The product's id."
+        required: false
+        example: 8
+        type: integer
+        custom: []
+      name:
+        name: name
+        description: "The product's name."
+        required: false
+        example: doloremque
+        type: string
+        custom: []
+      slug:
+        name: slug
+        description: "The product's slug."
+        required: false
+        example: et
+        type: string
+        custom: []
+    bodyParameters:
+      id:
+        name: id
+        description: ''
+        required: false
+        example: 4
+        type: integer
+        custom: []
+      slug:
+        name: slug
+        description: ''
+        required: false
+        example: voluptatem
+        type: string
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: false
+        example: praesentium
+        type: string
         custom: []
     responses:
       -
