@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Brands\CreateBrandRequest;
 use App\Http\Requests\Brands\UpdateBrandRequest;
+use App\Http\Requests\Brands\DeleteBrandRequest;
 use App\Models\Brand;
 use App\Traits\HttpResponses;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class BrandController extends Controller
@@ -184,11 +186,11 @@ class BrandController extends Controller
      * "result": "Brand deleted successfully"
      * }
      * 
-     * @param Request $request
+     * @param DeleteBrandRequest $request
      * @return JsonResponse
      */
 
-    public function delete(Request $request): JsonResponse
+    public function delete(DeleteBrandRequest $request): JsonResponse
     {
         try {
             // Check if the current user's role is not equal to 1 (assuming role 1 is an admin)
@@ -197,17 +199,7 @@ class BrandController extends Controller
                 return $this->error('Access denied for this user');
             }
 
-            // Validate the incoming request data related to brand deletion
-            $data = $request->validate(
-                [
-                    'id' => 'required|integer|exists:brands,id'
-                ],
-                [
-                    'id.required' => 'The brand id field is required.',
-                    'id.integer' => 'The brand id field must be an integer.',
-                    'id.exists' => 'The selected brand id is invalid.',
-                ]
-            );
+            $data = $request->validated();
 
             // Extract the validated brand ID from the data
             $id = $data['id'];

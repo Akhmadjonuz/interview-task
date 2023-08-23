@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Categories\DeleteCategoryRequest;
 use App\Http\Requests\Categories\UpdateCategoryRequest;
 use App\Http\Requests\Categories\CreateCategoryRequest;
 use App\Models\Category;
@@ -151,27 +152,18 @@ class CategoryController extends Controller
      * "result": "Category deleted successfully"
      * }
      * 
-     * @param Request $request
+     * @param DeleteCategoryRequest $request
      * @return JsonResponse
      */
 
-    public function delete(Request $request): JsonResponse
+    public function delete(DeleteCategoryRequest $request): JsonResponse
     {
         try {
 
             if (Auth::user()->role !== 1)
                 return $this->error('Access denied for this user');
 
-            $data = $request->validate(
-                [
-                    'id' => 'required|integer|exists:categories,id'
-                ],
-                [
-                    'id.required' => 'The category id is required',
-                    'id.integer' => 'The category id must be an integer',
-                    'id.exists' => 'The category id must be exists'
-                ]
-            );
+            $data = $request->validated();
 
             $id = $data['id'];
             $category = Category::find($id);

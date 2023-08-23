@@ -22,14 +22,14 @@ endpoints:
         name: phone
         description: "The user's phone number."
         required: true
-        example: 19
+        example: 9
         type: integer
         custom: []
       password:
         name: password
         description: "The user's password."
         required: true
-        example: asperiores
+        example: aut
         type: string
         custom: []
     responses:
@@ -74,21 +74,21 @@ endpoints:
         name: phone
         description: "The user's phone number."
         required: true
-        example: 11
+        example: 9
         type: integer
         custom: []
       password:
         name: password
         description: "The user's password."
         required: true
-        example: non
+        example: deleniti
         type: string
         custom: []
       password_confirmation:
         name: password_confirmation
         description: 'The value and <code>password</code> must match.'
         required: true
-        example: non
+        example: autem
         type: string
         custom: []
     responses:

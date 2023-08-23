@@ -20,7 +20,7 @@ endpoints:
         name: name
         description: "The product's name."
         required: true
-        example: quo
+        example: qui
         type: string
         custom: []
       photo:
@@ -34,7 +34,7 @@ endpoints:
         name: price
         description: "The product's price."
         required: true
-        example: nostrum
+        example: quod
         type: string
         custom: []
       category_id:
@@ -48,7 +48,7 @@ endpoints:
         name: brand_id
         description: "The product's brand id."
         required: true
-        example: 6
+        example: 8
         type: integer
         custom: []
       status:
@@ -87,14 +87,14 @@ endpoints:
         name: id
         description: "The product's id."
         required: true
-        example: 12
+        example: 16
         type: integer
         custom: []
       name:
         name: name
         description: "nullable The product's name."
         required: false
-        example: tenetur
+        example: veritatis
         type: string
         custom: []
       photo:
@@ -108,28 +108,28 @@ endpoints:
         name: price
         description: "nullable The product's price."
         required: false
-        example: sit
+        example: illum
         type: string
         custom: []
       category_id:
         name: category_id
         description: "nullable The product's category id."
         required: false
-        example: 1
+        example: 10
         type: integer
         custom: []
       brand_id:
         name: brand_id
         description: "nullable The product's brand id."
         required: false
-        example: 8
+        example: 1
         type: integer
         custom: []
       status:
         name: status
         description: "nullable The product's status."
         required: false
-        example: false
+        example: true
         type: boolean
         custom: []
     responses:
@@ -160,21 +160,21 @@ endpoints:
         name: price
         description: "The product's price."
         required: false
-        example: veniam
+        example: sunt
         type: string
         custom: []
       category_id:
         name: category_id
         description: "The product's category id."
         required: false
-        example: 2
+        example: 18
         type: integer
         custom: []
       brand_id:
         name: brand_id
         description: "The product's brand id."
         required: false
-        example: 10
+        example: 3
         type: integer
         custom: []
     bodyParameters:
@@ -182,21 +182,21 @@ endpoints:
         name: price
         description: ''
         required: false
-        example: 19
+        example: 10
         type: integer
         custom: []
       category_id:
         name: category_id
         description: ''
         required: false
-        example: 10
+        example: 8
         type: integer
         custom: []
       brand_id:
         name: brand_id
         description: ''
         required: false
-        example: 9
+        example: 19
         type: integer
         custom: []
     responses:
@@ -228,21 +228,21 @@ endpoints:
         name: id
         description: "The product's id."
         required: false
-        example: 8
+        example: 11
         type: integer
         custom: []
       name:
         name: name
         description: "The product's name."
         required: false
-        example: doloremque
+        example: ipsam
         type: string
         custom: []
       slug:
         name: slug
         description: "The product's slug."
         required: false
-        example: et
+        example: ut
         type: string
         custom: []
     bodyParameters:
@@ -250,21 +250,21 @@ endpoints:
         name: id
         description: ''
         required: false
-        example: 4
+        example: 7
         type: integer
         custom: []
       slug:
         name: slug
         description: ''
         required: false
-        example: voluptatem
+        example: omnis
         type: string
         custom: []
       name:
         name: name
         description: ''
         required: false
-        example: praesentium
+        example: commodi
         type: string
         custom: []
     responses:

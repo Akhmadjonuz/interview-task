@@ -22,7 +22,7 @@ endpoints:
         name: name
         description: "The category's name."
         required: true
-        example: omnis
+        example: exercitationem
         type: string
         custom: []
       status:
@@ -61,21 +61,21 @@ endpoints:
         name: id
         description: "The category's id."
         required: true
-        example: 17
+        example: 20
         type: integer
         custom: []
       name:
         name: name
         description: "nullable The category's name."
         required: false
-        example: qui
+        example: pariatur
         type: string
         custom: []
       status:
         name: status
         description: "nullable The category's status."
         required: false
-        example: false
+        example: true
         type: boolean
         custom: []
     responses:
@@ -107,7 +107,7 @@ endpoints:
         name: id
         description: "The category's id."
         required: true
-        example: 2
+        example: 20
         type: integer
         custom: []
     responses:

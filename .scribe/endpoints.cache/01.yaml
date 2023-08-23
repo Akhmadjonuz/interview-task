@@ -22,14 +22,14 @@ endpoints:
         name: name
         description: "The brand's name."
         required: true
-        example: soluta
+        example: eaque
         type: string
         custom: []
       status:
         name: status
         description: "nullable The brand's status."
         required: false
-        example: true
+        example: false
         type: boolean
         custom: []
     responses:
@@ -61,21 +61,21 @@ endpoints:
         name: id
         description: "The brand's id."
         required: true
-        example: 1
+        example: 11
         type: integer
         custom: []
       name:
         name: name
         description: "nullable The brand's name."
         required: false
-        example: illo
+        example: quia
         type: string
         custom: []
       status:
         name: status
         description: "nullable The brand's status."
         required: false
-        example: false
+        example: true
         type: boolean
         custom: []
     responses:
@@ -107,7 +107,7 @@ endpoints:
         name: id
         description: "The brand's id."
         required: true
-        example: 2
+        example: 18
         type: integer
         custom: []
     responses:
@@ -137,7 +137,7 @@ endpoints:
         name: id
         description: 'The ID of the .'
         required: false
-        example: perspiciatis
+        example: nobis
         type: string
         custom: []
     queryParameters: []

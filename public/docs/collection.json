@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "4d33a592-a5cd-436e-85f2-359d4d0f81f2",
+        "_postman_id": "040bad9c-b660-4794-84db-41a7fa2bdee3",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"phone\":19,\"password\":\"asperiores\"}"
+                            "raw": "{\"phone\":9,\"password\":\"aut\"}"
                         },
                         "description": "",
                         "auth": {
@@ -85,7 +85,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"phone\":11,\"password\":\"non\",\"password_confirmation\":\"non\"}"
+                            "raw": "{\"phone\":9,\"password\":\"deleniti\",\"password_confirmation\":\"autem\"}"
                         },
                         "description": "",
                         "auth": {
@@ -167,7 +167,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"soluta\",\"status\":true}"
+                            "raw": "{\"name\":\"eaque\",\"status\":false}"
                         },
                         "description": ""
                     },
@@ -202,7 +202,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":1,\"name\":\"illo\",\"status\":false}"
+                            "raw": "{\"id\":11,\"name\":\"quia\",\"status\":true}"
                         },
                         "description": ""
                     },
@@ -237,7 +237,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":2}"
+                            "raw": "{\"id\":18}"
                         },
                         "description": ""
                     },
@@ -262,7 +262,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "perspiciatis",
+                                    "value": "nobis",
                                     "description": "The ID of the ."
                                 }
                             ]
@@ -318,7 +318,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"omnis\",\"status\":true}"
+                            "raw": "{\"name\":\"exercitationem\",\"status\":true}"
                         },
                         "description": ""
                     },
@@ -353,7 +353,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":17,\"name\":\"qui\",\"status\":false}"
+                            "raw": "{\"id\":20,\"name\":\"pariatur\",\"status\":true}"
                         },
                         "description": ""
                     },
@@ -388,7 +388,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":2}"
+                            "raw": "{\"id\":20}"
                         },
                         "description": ""
                     },
@@ -432,13 +432,13 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "quo",
+                                    "value": "qui",
                                     "type": "text",
                                     "description": "The product's name."
                                 },
                                 {
                                     "key": "price",
-                                    "value": "nostrum",
+                                    "value": "quod",
                                     "type": "text",
                                     "description": "The product's price."
                                 },
@@ -450,7 +450,7 @@
                                 },
                                 {
                                     "key": "brand_id",
-                                    "value": 6,
+                                    "value": 8,
                                     "type": "text",
                                     "description": "The product's brand id."
                                 },
@@ -503,37 +503,37 @@
                             "formdata": [
                                 {
                                     "key": "id",
-                                    "value": 12,
+                                    "value": 16,
                                     "type": "text",
                                     "description": "The product's id."
                                 },
                                 {
                                     "key": "name",
-                                    "value": "tenetur",
+                                    "value": "veritatis",
                                     "type": "text",
                                     "description": "nullable The product's name."
                                 },
                                 {
                                     "key": "price",
-                                    "value": "sit",
+                                    "value": "illum",
                                     "type": "text",
                                     "description": "nullable The product's price."
                                 },
                                 {
                                     "key": "category_id",
-                                    "value": 1,
+                                    "value": 10,
                                     "type": "text",
                                     "description": "nullable The product's category id."
                                 },
                                 {
                                     "key": "brand_id",
-                                    "value": 8,
+                                    "value": 1,
                                     "type": "text",
                                     "description": "nullable The product's brand id."
                                 },
                                 {
                                     "key": "status",
-                                    "value": false,
+                                    "value": true,
                                     "type": "text",
                                     "description": "nullable The product's status."
                                 },
@@ -569,24 +569,24 @@
                             "query": [
                                 {
                                     "key": "price",
-                                    "value": "veniam",
+                                    "value": "sunt",
                                     "description": "The product's price.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "category_id",
-                                    "value": "2",
+                                    "value": "18",
                                     "description": "The product's category id.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "brand_id",
-                                    "value": "10",
+                                    "value": "3",
                                     "description": "The product's brand id.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/product\/show?price=veniam&category_id=2&brand_id=10"
+                            "raw": "{{baseUrl}}\/api\/product\/show?price=sunt&category_id=18&brand_id=3"
                         },
                         "method": "GET",
                         "header": [
@@ -601,7 +601,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"price\":19,\"category_id\":10,\"brand_id\":9}"
+                            "raw": "{\"price\":10,\"category_id\":8,\"brand_id\":19}"
                         },
                         "description": "",
                         "auth": {
@@ -626,24 +626,24 @@
                             "query": [
                                 {
                                     "key": "id",
-                                    "value": "8",
+                                    "value": "11",
                                     "description": "The product's id.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "name",
-                                    "value": "doloremque",
+                                    "value": "ipsam",
                                     "description": "The product's name.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "slug",
-                                    "value": "et",
+                                    "value": "ut",
                                     "description": "The product's slug.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/product\/search?id=8&name=doloremque&slug=et"
+                            "raw": "{{baseUrl}}\/api\/product\/search?id=11&name=ipsam&slug=ut"
                         },
                         "method": "GET",
                         "header": [
@@ -658,7 +658,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":4,\"slug\":\"voluptatem\",\"name\":\"praesentium\"}"
+                            "raw": "{\"id\":7,\"slug\":\"omnis\",\"name\":\"commodi\"}"
                         },
                         "description": "",
                         "auth": {

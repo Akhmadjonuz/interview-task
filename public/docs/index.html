@@ -149,7 +149,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: August 21 2023</li>
+        <li>Last updated: August 23 2023</li>
     </ul>
 </div>
 
@@ -189,8 +189,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": 19,
-    \"password\": \"asperiores\"
+    \"phone\": 9,
+    \"password\": \"aut\"
 }"
 </code></pre></div>
 
@@ -206,8 +206,8 @@ const headers = {
 };
 
 let body = {
-    "phone": 19,
-    "password": "asperiores"
+    "phone": 9,
+    "password": "aut"
 };
 
 fetch(url, {
@@ -288,7 +288,7 @@ fetch(url, {
                 <input type="number"
                name="phone"
                data-endpoint="POSTapi-login"
-               value="19"
+               value="9"
                data-component="body" hidden>
     <br>
 <p>The user's phone number.</p>
@@ -298,7 +298,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-login"
-               value="asperiores"
+               value="aut"
                data-component="body" hidden>
     <br>
 <p>The user's password.</p>
@@ -322,9 +322,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": 11,
-    \"password\": \"non\",
-    \"password_confirmation\": \"non\"
+    \"phone\": 9,
+    \"password\": \"deleniti\",
+    \"password_confirmation\": \"autem\"
 }"
 </code></pre></div>
 
@@ -340,9 +340,9 @@ const headers = {
 };
 
 let body = {
-    "phone": 11,
-    "password": "non",
-    "password_confirmation": "non"
+    "phone": 9,
+    "password": "deleniti",
+    "password_confirmation": "autem"
 };
 
 fetch(url, {
@@ -423,7 +423,7 @@ fetch(url, {
                 <input type="number"
                name="phone"
                data-endpoint="POSTapi-register"
-               value="11"
+               value="9"
                data-component="body" hidden>
     <br>
 <p>The user's phone number.</p>
@@ -433,7 +433,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-register"
-               value="non"
+               value="deleniti"
                data-component="body" hidden>
     <br>
 <p>The user's password.</p>
@@ -443,7 +443,7 @@ fetch(url, {
                 <input type="text"
                name="password_confirmation"
                data-endpoint="POSTapi-register"
-               value="non"
+               value="autem"
                data-component="body" hidden>
     <br>
 <p>The value and <code>password</code> must match.</p>
@@ -568,8 +568,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"soluta\",
-    \"status\": true
+    \"name\": \"eaque\",
+    \"status\": false
 }"
 </code></pre></div>
 
@@ -585,8 +585,8 @@ const headers = {
 };
 
 let body = {
-    "name": "soluta",
-    "status": true
+    "name": "eaque",
+    "status": false
 };
 
 fetch(url, {
@@ -661,7 +661,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-brand-create"
-               value="soluta"
+               value="eaque"
                data-component="body" hidden>
     <br>
 <p>The brand's name.</p>
@@ -707,9 +707,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": 1,
-    \"name\": \"illo\",
-    \"status\": false
+    \"id\": 11,
+    \"name\": \"quia\",
+    \"status\": true
 }"
 </code></pre></div>
 
@@ -725,9 +725,9 @@ const headers = {
 };
 
 let body = {
-    "id": 1,
-    "name": "illo",
-    "status": false
+    "id": 11,
+    "name": "quia",
+    "status": true
 };
 
 fetch(url, {
@@ -802,7 +802,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTapi-brand-update"
-               value="1"
+               value="11"
                data-component="body" hidden>
     <br>
 <p>The brand's id.</p>
@@ -812,7 +812,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="PUTapi-brand-update"
-               value="illo"
+               value="quia"
                data-component="body" hidden>
     <br>
 <p>nullable The brand's name.</p>
@@ -858,7 +858,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": 2
+    \"id\": 18
 }"
 </code></pre></div>
 
@@ -874,7 +874,7 @@ const headers = {
 };
 
 let body = {
-    "id": 2
+    "id": 18
 };
 
 fetch(url, {
@@ -949,7 +949,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEapi-brand-delete"
-               value="2"
+               value="18"
                data-component="body" hidden>
     <br>
 <p>The brand's id.</p>
@@ -970,14 +970,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://task.beta/api/showperspiciatis" \
+    --get "http://task.beta/api/shownobis" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://task.beta/api/showperspiciatis"
+    "http://task.beta/api/shownobis"
 );
 
 const headers = {
@@ -1056,7 +1056,7 @@ fetch(url, {
                 <input type="text"
                name="id"
                data-endpoint="GETapi-show-id--"
-               value="perspiciatis"
+               value="nobis"
                data-component="url" hidden>
     <br>
 <p>The ID of the .</p>
@@ -1085,7 +1085,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"omnis\",
+    \"name\": \"exercitationem\",
     \"status\": true
 }"
 </code></pre></div>
@@ -1102,7 +1102,7 @@ const headers = {
 };
 
 let body = {
-    "name": "omnis",
+    "name": "exercitationem",
     "status": true
 };
 
@@ -1178,7 +1178,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-category-create"
-               value="omnis"
+               value="exercitationem"
                data-component="body" hidden>
     <br>
 <p>The category's name.</p>
@@ -1224,9 +1224,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": 17,
-    \"name\": \"qui\",
-    \"status\": false
+    \"id\": 20,
+    \"name\": \"pariatur\",
+    \"status\": true
 }"
 </code></pre></div>
 
@@ -1242,9 +1242,9 @@ const headers = {
 };
 
 let body = {
-    "id": 17,
-    "name": "qui",
-    "status": false
+    "id": 20,
+    "name": "pariatur",
+    "status": true
 };
 
 fetch(url, {
@@ -1319,7 +1319,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTapi-category-update"
-               value="17"
+               value="20"
                data-component="body" hidden>
     <br>
 <p>The category's id.</p>
@@ -1329,7 +1329,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="PUTapi-category-update"
-               value="qui"
+               value="pariatur"
                data-component="body" hidden>
     <br>
 <p>nullable The category's name.</p>
@@ -1375,7 +1375,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": 2
+    \"id\": 20
 }"
 </code></pre></div>
 
@@ -1391,7 +1391,7 @@ const headers = {
 };
 
 let body = {
-    "id": 2
+    "id": 20
 };
 
 fetch(url, {
@@ -1466,7 +1466,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEapi-category-delete"
-               value="2"
+               value="20"
                data-component="body" hidden>
     <br>
 <p>The category's id.</p>
@@ -1494,12 +1494,12 @@ fetch(url, {
     "http://task.beta/api/product/create" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "name=quo" \
-    --form "price=nostrum" \
+    --form "name=qui" \
+    --form "price=quod" \
     --form "category_id=4" \
-    --form "brand_id=6" \
+    --form "brand_id=8" \
     --form "status=" \
-    --form "photo=@C:\OSPanel\userdata\temp\php88A3.tmp" </code></pre></div>
+    --form "photo=@C:\OSPanel\userdata\temp\php4C5E.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1513,10 +1513,10 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('name', 'quo');
-body.append('price', 'nostrum');
+body.append('name', 'qui');
+body.append('price', 'quod');
 body.append('category_id', '4');
-body.append('brand_id', '6');
+body.append('brand_id', '8');
 body.append('status', '');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
@@ -1592,7 +1592,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-product-create"
-               value="quo"
+               value="qui"
                data-component="body" hidden>
     <br>
 <p>The product's name.</p>
@@ -1612,7 +1612,7 @@ fetch(url, {
                 <input type="text"
                name="price"
                data-endpoint="POSTapi-product-create"
-               value="nostrum"
+               value="quod"
                data-component="body" hidden>
     <br>
 <p>The product's price.</p>
@@ -1632,7 +1632,7 @@ fetch(url, {
                 <input type="number"
                name="brand_id"
                data-endpoint="POSTapi-product-create"
-               value="6"
+               value="8"
                data-component="body" hidden>
     <br>
 <p>The product's brand id.</p>
@@ -1677,13 +1677,13 @@ fetch(url, {
     "http://task.beta/api/product/update" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "id=12" \
-    --form "name=tenetur" \
-    --form "price=sit" \
-    --form "category_id=1" \
-    --form "brand_id=8" \
-    --form "status=" \
-    --form "photo=@C:\OSPanel\userdata\temp\php88B6.tmp" </code></pre></div>
+    --form "id=16" \
+    --form "name=veritatis" \
+    --form "price=illum" \
+    --form "category_id=10" \
+    --form "brand_id=1" \
+    --form "status=1" \
+    --form "photo=@C:\OSPanel\userdata\temp\php4C61.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1697,12 +1697,12 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('id', '12');
-body.append('name', 'tenetur');
-body.append('price', 'sit');
-body.append('category_id', '1');
-body.append('brand_id', '8');
-body.append('status', '');
+body.append('id', '16');
+body.append('name', 'veritatis');
+body.append('price', 'illum');
+body.append('category_id', '10');
+body.append('brand_id', '1');
+body.append('status', '1');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -1777,7 +1777,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTapi-product-update"
-               value="12"
+               value="16"
                data-component="body" hidden>
     <br>
 <p>The product's id.</p>
@@ -1787,7 +1787,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="PUTapi-product-update"
-               value="tenetur"
+               value="veritatis"
                data-component="body" hidden>
     <br>
 <p>nullable The product's name.</p>
@@ -1807,7 +1807,7 @@ fetch(url, {
                 <input type="text"
                name="price"
                data-endpoint="PUTapi-product-update"
-               value="sit"
+               value="illum"
                data-component="body" hidden>
     <br>
 <p>nullable The product's price.</p>
@@ -1817,7 +1817,7 @@ fetch(url, {
                 <input type="number"
                name="category_id"
                data-endpoint="PUTapi-product-update"
-               value="1"
+               value="10"
                data-component="body" hidden>
     <br>
 <p>nullable The product's category id.</p>
@@ -1827,7 +1827,7 @@ fetch(url, {
                 <input type="number"
                name="brand_id"
                data-endpoint="PUTapi-product-update"
-               value="8"
+               value="1"
                data-component="body" hidden>
     <br>
 <p>nullable The product's brand id.</p>
@@ -1868,13 +1868,13 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://task.beta/api/product/show?price=veniam&amp;category_id=2&amp;brand_id=10" \
+    --get "http://task.beta/api/product/show?price=sunt&amp;category_id=18&amp;brand_id=3" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"price\": 19,
-    \"category_id\": 10,
-    \"brand_id\": 9
+    \"price\": 10,
+    \"category_id\": 8,
+    \"brand_id\": 19
 }"
 </code></pre></div>
 
@@ -1885,9 +1885,9 @@ fetch(url, {
 );
 
 const params = {
-    "price": "veniam",
-    "category_id": "2",
-    "brand_id": "10",
+    "price": "sunt",
+    "category_id": "18",
+    "brand_id": "3",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1898,9 +1898,9 @@ const headers = {
 };
 
 let body = {
-    "price": 19,
-    "category_id": 10,
-    "brand_id": 9
+    "price": 10,
+    "category_id": 8,
+    "brand_id": 19
 };
 
 fetch(url, {
@@ -1967,7 +1967,7 @@ fetch(url, {
                 <input type="text"
                name="price"
                data-endpoint="GETapi-product-show"
-               value="veniam"
+               value="sunt"
                data-component="query" hidden>
     <br>
 <p>The product's price.</p>
@@ -1977,7 +1977,7 @@ fetch(url, {
                 <input type="number"
                name="category_id"
                data-endpoint="GETapi-product-show"
-               value="2"
+               value="18"
                data-component="query" hidden>
     <br>
 <p>The product's category id.</p>
@@ -1987,7 +1987,7 @@ fetch(url, {
                 <input type="number"
                name="brand_id"
                data-endpoint="GETapi-product-show"
-               value="10"
+               value="3"
                data-component="query" hidden>
     <br>
 <p>The product's brand id.</p>
@@ -1998,7 +1998,7 @@ fetch(url, {
                 <input type="number"
                name="price"
                data-endpoint="GETapi-product-show"
-               value="19"
+               value="10"
                data-component="body" hidden>
     <br>
 
@@ -2008,7 +2008,7 @@ fetch(url, {
                 <input type="number"
                name="category_id"
                data-endpoint="GETapi-product-show"
-               value="10"
+               value="8"
                data-component="body" hidden>
     <br>
 
@@ -2018,7 +2018,7 @@ fetch(url, {
                 <input type="number"
                name="brand_id"
                data-endpoint="GETapi-product-show"
-               value="9"
+               value="19"
                data-component="body" hidden>
     <br>
 
@@ -2038,13 +2038,13 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://task.beta/api/product/search?id=8&amp;name=doloremque&amp;slug=et" \
+    --get "http://task.beta/api/product/search?id=11&amp;name=ipsam&amp;slug=ut" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": 4,
-    \"slug\": \"voluptatem\",
-    \"name\": \"praesentium\"
+    \"id\": 7,
+    \"slug\": \"omnis\",
+    \"name\": \"commodi\"
 }"
 </code></pre></div>
 
@@ -2055,9 +2055,9 @@ fetch(url, {
 );
 
 const params = {
-    "id": "8",
-    "name": "doloremque",
-    "slug": "et",
+    "id": "11",
+    "name": "ipsam",
+    "slug": "ut",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2068,9 +2068,9 @@ const headers = {
 };
 
 let body = {
-    "id": 4,
-    "slug": "voluptatem",
-    "name": "praesentium"
+    "id": 7,
+    "slug": "omnis",
+    "name": "commodi"
 };
 
 fetch(url, {
@@ -2137,7 +2137,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="GETapi-product-search"
-               value="8"
+               value="11"
                data-component="query" hidden>
     <br>
 <p>The product's id.</p>
@@ -2147,7 +2147,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="GETapi-product-search"
-               value="doloremque"
+               value="ipsam"
                data-component="query" hidden>
     <br>
 <p>The product's name.</p>
@@ -2157,7 +2157,7 @@ fetch(url, {
                 <input type="text"
                name="slug"
                data-endpoint="GETapi-product-search"
-               value="et"
+               value="ut"
                data-component="query" hidden>
     <br>
 <p>The product's slug.</p>
@@ -2168,7 +2168,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="GETapi-product-search"
-               value="4"
+               value="7"
                data-component="body" hidden>
     <br>
 
@@ -2178,7 +2178,7 @@ fetch(url, {
                 <input type="text"
                name="slug"
                data-endpoint="GETapi-product-search"
-               value="voluptatem"
+               value="omnis"
                data-component="body" hidden>
     <br>
 
@@ -2188,7 +2188,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="GETapi-product-search"
-               value="praesentium"
+               value="commodi"
                data-component="body" hidden>
     <br>
 
